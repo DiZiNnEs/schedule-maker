@@ -44,6 +44,7 @@ class Worker(models.Model):
 class Schedule(models.Model):
     name = models.CharField(max_length=256)
     workers = models.ManyToManyField(Worker)
+    task = models.ManyToManyField('Task')
 
     class Meta:
         db_table = 'schedule'
