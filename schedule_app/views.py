@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+class IndexView(LoginRequiredMixin, TemplateView):
+    template_name = 'schedule_app/index.html'
+    login_url = 'auth/login/'
