@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=128)
+    chief_of_category = models.ForeignKey('Chief', on_delete=models.CASCADE, help_text='Chief of category')
 
     class Meta:
         db_table = 'category'
@@ -16,7 +17,6 @@ class Category(models.Model):
 
 class Chief(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'chief'
@@ -57,7 +57,7 @@ class Schedule(models.Model):
 
 class Task(models.Model):
     title = models.CharField(max_length=128)
-    time = models.DateTimeField(auto_now=True)
+    time = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'task'
