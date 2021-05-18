@@ -5,8 +5,11 @@
 {% endblock %}
 
 {% block body %}
-    <form action="{% url 'login' %}">
+    <form method="POST">
+        {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Registration</button>
     </form>
+
+    <p>Have account ? <a href="{% url 'login' %}">Login</a> now</p>
 {% endblock %}
