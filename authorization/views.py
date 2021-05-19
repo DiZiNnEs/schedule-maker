@@ -1,17 +1,13 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.views import generic
-from django.views.generic.edit import CreateView
 from django.contrib.auth import (
-    views,
     forms,
-    logout,
     authenticate,
     login,
 )
-
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
+from django.views.generic.edit import CreateView
 
 from authorization.forms import LoginForm
 
