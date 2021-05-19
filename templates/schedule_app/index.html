@@ -6,14 +6,17 @@
 
 {% block body %}
     <h2>Home</h2>
-    {% for obj_list in object_list %}
-        {{ obj_list.task }}
-    {% endfor %}
-            {{ request.user }}
-            {{ tasks }}
     <hr>
     {% for sch_list in schedule_list %}
-        {{ sch_list }}
+        {{ sch_list.name }}
+        <hr>
+        {% for task_name in sch_list.task.all %}
+            {{ task_name }}
+        {% endfor %}
+        <hr>
+        {% for worker in sch_list.workers.all %}
+            {{ worker }}
+        {% endfor %}
     {% endfor %}
 {% endblock %}
 
