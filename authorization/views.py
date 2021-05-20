@@ -2,6 +2,7 @@ from django.contrib.auth import (
     forms,
     authenticate,
     login,
+    logout
 )
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -37,3 +38,9 @@ class RegistrationView(CreateView):
 
     def get_success_url(self):
         return reverse('login')
+
+
+class LogoutView(View):
+    def get(self, request, *args, **kwargs):
+        logout(self.request)
+        return redirect('/')
