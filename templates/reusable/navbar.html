@@ -1,0 +1,6 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="{% url 'logout' %}">Logout</a>
+    {% if some_text %}
+        <a href="" class="navbar-brand">{{ some_text }}</a>
+    {% endif %}
+</nav>
