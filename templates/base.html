@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css' %}">
     {% block title %} {% endblock %}
     {% block css %} {% endblock %}
 </head>
 <body>
     {% block body %} {% endblock %}
+</body>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap-bundle.js' %}"></script>
 
     {% block script %} {% endblock %}
-</body>
-
 </html>
