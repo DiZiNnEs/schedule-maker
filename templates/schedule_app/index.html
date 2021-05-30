@@ -5,21 +5,20 @@
 {% endblock %}
 
 {% block body %}
+    {% include 'reusable/navbar.html' with some_text='Hello' %}
     {% if request.user %}
         Do you wanna <a href="{% url 'logout' %}">logout</a> ?
     {% endif %}
-    <h2>Home</h2>
-    <hr>
-    {% for sch_list in schedule_list %}
-        {{ sch_list.name }}
-        <hr>
-        {% for task_name in sch_list.task.all %}
-            {{ task_name }}
+    <div class="jumbotron">
+        {% for sch_list in schedule_list %}
+            <h2> {{ sch_list.name }}</h2>
+            {% for task_name in sch_list.task.all %}
+                <p class="lead">{{ task_name }}</p>
+            {% endfor %}
+            {% for worker in sch_list.workers.all %}
+                <h4>{{ worker }}</h4>
+            {% endfor %}
         {% endfor %}
-        <hr>
-        {% for worker in sch_list.workers.all %}
-            {{ worker }}
-        {% endfor %}
-    {% endfor %}
+    </div>
 {% endblock %}
 
