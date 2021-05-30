@@ -4,12 +4,26 @@
     <title>Login page</title>
 {% endblock %}
 
-{% block body %}
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+{% endblock %}
 
-    <p>Not have an account ? <a href="{% url 'registration' %}">Register</a> now</p>
+{% block body %}
+    <form class="form-signin" disabled method="POST">
+        {% csrf_token %}
+        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+             height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputLogin" class="sr-only">Login address</label>
+        <label for="inputPassword" class="sr-only">Password</label>
+        {{ form }}
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    </form>
 {% endblock %}
